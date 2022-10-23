@@ -1,14 +1,16 @@
 import Head from "next/head";
-import Link from "next/link";
 
-export async function getServerSideProps() {
-  console.log("Client 콘솔에서 찍히지 않고 Server 에서 찍힌다");
+export async function getStaticProps() {
+  console.log("새로고침하면 서버쪽에서 ISR 이 찍힌다");
+
   return {
     props: { time: new Date().toISOString() },
+    // revalidate 는 초단위
+    revalidate: 1,
   };
 }
 
-export default function Home({ time }) {
+export default function Isr({ time }) {
   return (
     <div className="container">
       <Head>
@@ -18,21 +20,6 @@ export default function Home({ time }) {
 
       <main>
         <h1 className="title">{time}</h1>
-        <h1>
-          <Link href="/csr">
-            <a>CSR</a>
-          </Link>
-        </h1>{" "}
-        <h1>
-          <Link href="/ssg">
-            <a>SSG</a>
-          </Link>
-        </h1>
-        <h1>
-          <Link href="/isr">
-            <a>ISR</a>
-          </Link>
-        </h1>
       </main>
 
       <footer>

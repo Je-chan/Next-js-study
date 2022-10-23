@@ -1,14 +1,16 @@
 import Head from "next/head";
-import Link from "next/link";
 
-export async function getServerSideProps() {
-  console.log("Client 콘솔에서 찍히지 않고 Server 에서 찍힌다");
+export async function getStaticProps() {
+  // 빌드 전에 dev 에서 확인할 때는 서버에서 찍히는 것처럼 서버 콘솔에 내용이 찍히지만
+  // 빌드를 하고 나면 클라이언트에도 서버에도 콘솔이 찍히지 않는다
+  console.log("SSG");
+
   return {
     props: { time: new Date().toISOString() },
   };
 }
 
-export default function Home({ time }) {
+export default function Ssg({ time }) {
   return (
     <div className="container">
       <Head>
@@ -18,21 +20,6 @@ export default function Home({ time }) {
 
       <main>
         <h1 className="title">{time}</h1>
-        <h1>
-          <Link href="/csr">
-            <a>CSR</a>
-          </Link>
-        </h1>{" "}
-        <h1>
-          <Link href="/ssg">
-            <a>SSG</a>
-          </Link>
-        </h1>
-        <h1>
-          <Link href="/isr">
-            <a>ISR</a>
-          </Link>
-        </h1>
       </main>
 
       <footer>
