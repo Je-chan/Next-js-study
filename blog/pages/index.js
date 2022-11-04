@@ -51,6 +51,10 @@ export default function Home() {
             </p>
           </a>
         </div>
+
+        <h1 className="title">
+          Read this Post <Link href="/posts/second-post">두 번째 글</Link>
+        </h1>
       </main>
 
       <footer>
