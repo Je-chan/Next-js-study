@@ -16,3 +16,25 @@
 ### Prefetching
 - <Link> 컴포넌트를 이용하면, Viewport 에 Link 컴포넌트가 노출됐을 때 href 로 연결된 페이지의 chunk 를 로드한다
 - 이를 통해 성능을 최적화
+
+# 2. 내장 컴포넌트
+## 2-1) Image
+### public
+- 정적 리소스를 Next.js 로 서빙하기 위한 디렉토리
+### Image 컴포넌트
+```typescript jsx
+<img src="/image/profile.jpg" alt="예제" />
+
+<Image src="/image/profile.jpg" width={144} height={144} alt="예제" />
+```
+- 일반 img 태그로 렌더링을 할 때는 image/jpeg 파일로 렌더링
+- Image 컴포넌트로 렌더링 할 때는 image/webp 파일로 렌더링된다.
+  - webp 는 구글에서 만든 포맷
+  - 최적화된 이미지 포맷으로 내려주고 용량도 더 작고 퀄리티 좋은 상태로 내려줌
+- Image 컴포넌트를 사용했을 때의 장점을 정리하면
+  - Resizing(response size)
+  - Lazy loading(viewport 에 들어오면 로드)
+  - 그외 optimization(webp 형태)
+- Image 컴포넌트는 CLS 를 최소화 하는 것이 목적
+  - CLS : 누적 레이아웃 이동
+  - 컴포넌트가 없다가 생기거나 있다가 사이즈가 바뀌거나 컴포넌트 변경에 의해 돔 트리가 다시 렌더링되는 내용들
