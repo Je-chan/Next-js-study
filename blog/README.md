@@ -38,3 +38,23 @@
 - Image 컴포넌트는 CLS 를 최소화 하는 것이 목적
   - CLS : 누적 레이아웃 이동
   - 컴포넌트가 없다가 생기거나 있다가 사이즈가 바뀌거나 컴포넌트 변경에 의해 돔 트리가 다시 렌더링되는 내용들
+
+
+## 2-2) Head
+- title, image, description 등 op(open graph) tag
+  - 어떤 스타일로 공유됐으면 좋겠는지를 넣을 수 있다
+- icon
+- third party script
+- Script Component
+  - strategy
+  - onLoad
+
+## 2-3) Layout
+- 공통 컴포넌트를 만들고
+- ./layout.module.css 라는 CSS 모듈 만들기
+- .container 라는 클래스 스타일을 만들고 Layout에서 해당 클래스 네임을 사용하면 css 가 적용
+
+## 2-4) Global Css
+- 컴포넌트는 아님
+- "pages/_app.js", "styles/global.css" 만듦
+- _app.js 에서 global.css 를 import 
