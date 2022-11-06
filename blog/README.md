@@ -58,3 +58,20 @@
 - 컴포넌트는 아님
 - "pages/_app.js", "styles/global.css" 만듦
 - _app.js 에서 global.css 를 import 
+
+# 3. Pre-rendering
+- Next.js 를 활용하면 페이지별로 Pre-rendering 방식을 선택할 수 있다
+  - getStaticProps 를 사용하면 SSG
+  - getServerSideProps 를 사용하면 SSR
+## SSG
+- SSG 를 사용하면 좋은 페이지 (대부분 잘 바뀌지 않는 페이지)
+  - Marketing Page
+  - Blog Posts
+  - E-commerce product listings
+  - Help and Documentation
+- 사용자가 페이지를 요청하기 전에 Pre-render 를 할 수 있는가?
+  - Yes : SSG
+  - No : SSR / ISR / CSR
+- 외부 데이터 없이 Pre-rendering 할 수 있고, 외부 데이터 가져와서 할 수도 있다
+  - 외부 데이터란 다른 파일, API, DB 등등
+- 
