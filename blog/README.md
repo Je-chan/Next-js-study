@@ -74,4 +74,19 @@
   - No : SSR / ISR / CSR
 - 외부 데이터 없이 Pre-rendering 할 수 있고, 외부 데이터 가져와서 할 수도 있다
   - 외부 데이터란 다른 파일, API, DB 등등
-- 
+
+# 4. getStaticPath
+## 4-1) fallback
+```typescript
+export async function getStaticPaths() {
+	const paths = getAllPostIds()
+  return {
+		paths,
+	  fallback: true
+	  // fallback: false
+	  // fallback: 'blocking'
+  }
+}
+```
+- fallback 은 Path 를 빌드할 때 조회할 때는 없었으나 getProps 로 조회할 때는 데이터가 있는 경우에 대한 대응
+- 즉, 빌드할 때는 없었으나 사용하다 보니 데이터가 존재할 때 활용
