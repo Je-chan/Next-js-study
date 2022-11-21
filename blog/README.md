@@ -89,4 +89,4 @@ export async function getStaticPaths() {
 }
 ```
 - fallback 은 Path 를 빌드할 때 조회할 때는 없었으나 getProps 로 조회할 때는 데이터가 있는 경우에 대한 대응
-- 즉, 빌드할 때는 없었으나 사용하다 보니 데이터가 존재할 때 활용
+- 즉, 빌드할 때는 없었으나 사용하다 보니 데이터가 존재할 때 활용한다
