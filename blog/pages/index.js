@@ -9,20 +9,20 @@ import { getSortedPostsData } from "../lib/posts";
 import { useEffect, useState } from "react";
 
 /* SSG 방식 */
-// export async function getStaticProps() {
-//   const allPostsData = getSortedPostsData()
-//   return {
-//     props: {allPostsData},
-//   }
-// }
-
-/* SSR 방식 */
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
     props: { allPostsData },
   };
 }
+
+/* SSR 방식 */
+// export async function getServerSideProps() {
+//   const allPostsData = getSortedPostsData();
+//   return {
+//     props: { allPostsData },
+//   };
+// }
 
 export default function Home({ allPostsData }) {
   /* CSR 방식 */
